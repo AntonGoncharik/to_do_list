@@ -1,8 +1,11 @@
 import React from 'react';
+import Task from "../Task/Task";
 
 const Footer = (props) => {
     return (
-        <div>33</div>
+        <div>
+            footer
+        </div>
     )
 }
 
