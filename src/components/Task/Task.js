@@ -1,32 +1,44 @@
 import React, {useState, useEffect} from 'react';
 
-const Task = ({index, task, deleteTask, performTask, updateTask}) => {
+const Task = ({id, performed, task, deleteTask, performTask, updateTask}) => {
     const [editMode, setEditMode] = useState(false);
-    useEffect(() => {
 
-    });
     const onEditMode = () => {
         setEditMode(true);
-    }
+    };
+
     const offEditMode = () => {
         setEditMode(false);
-    }
+    };
+
+    const handleEdit = (id) => {
+        updateTask(id, 'changed');
+    };
+
+    const handleDelete = (id) => {
+        deleteTask(id);
+    };
+
+    const handlePerform = (id) => {
+        performTask(id);
+    };
 
     return (
         <div>
-            <div>{index}</div>
+            <div>{id}</div>
+            <div>{performed && "yes" || 'no'}</div>
             <div>
                 {editMode && <input autoFocus onBlur={offEditMode}/>}
                 {!editMode && <span onDoubleClick={onEditMode}>{task}</span>}
             </div>
             <div>
-                <button>edit</button>
+                <button onClick={() => handleEdit(id)}>edit</button>
             </div>
             <div>
-                <button>delete</button>
+                <button onClick={() => handleDelete(id)}>delete</button>
             </div>
             <div>
-                <button>perform</button>
+                <button onClick={() => handlePerform(id)}>perform</button>
             </div>
         </div>
     )

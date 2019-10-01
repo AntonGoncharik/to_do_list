@@ -1,9 +1,9 @@
 import React from 'react';
-import Task from "../Task/Task";
+import s from './Footer.module.css';
 
 const Footer = (props) => {
     return (
-        <div>
+        <div className={s.footerBlock}>
             footer
         </div>
     )

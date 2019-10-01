@@ -6,14 +6,15 @@ import {addTask, deleteTask, performTask, updateTask} from "../../redux/task_red
 const ToDoList = (props) => {
     const addTask = () => {
         props.addTask('test');
-    }
+    };
 
     return (
         <div>
             <button onClick={addTask}>add task</button>
             {props.tasks.map(item =>
                 <Task key={item.id}
-                      indec={item.index}
+                      id={item.id}
+                      performed={item.performed}
                       task={item.task}
                       deleteTask={props.deleteTask}
                       performTask={props.performTask}
@@ -27,7 +28,7 @@ const mapStateToProps = (state) => {
     return {
         tasks: state.toDoList.tasks
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -36,6 +37,6 @@ const mapDispatchToProps = (dispatch) => {
         performTask: id => dispatch(performTask(id)),
         updateTask: (id, text) => dispatch(updateTask(id, text))
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);

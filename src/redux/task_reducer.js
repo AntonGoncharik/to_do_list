@@ -4,24 +4,40 @@ const UPDATE_TASK = 'UPDATE_TASK';
 const DELETE_TASK = 'DELETE_TASK';
 
 const initialState = {
-    tasks: [{id: 1, index: 0, task: 'first task'},
-        {id: 2, index: 1, task: 'second task'},
-        {id: 3, index: 2, task: 'third task'}]
+    tasks: [{id: 1, performed: false, task: 'first task'},
+        {id: 2, performed: false, task: 'second task'},
+        {id: 3, performed: false, task: 'third task'}]
 };
 
 export const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
-            return {...state, tasks: [...state.tasks, {task: action.text}]}
+            return {
+                ...state, tasks: [...state.tasks, {id: state.tasks.length + 1, performed: false, task: action.text}]
+            };
             break;
         case PERFORM_TASK:
-            return {...state}
+            return {
+                ...state, tasks: state.tasks.map((item) => {
+                    if (item.id === action.id) {
+                        return {...item, performed: true}
+                    }
+                    return item;
+                })
+            };
             break;
         case UPDATE_TASK:
-            return {...state}
+            return {
+                ...state, tasks: state.tasks.map((item) => {
+                    if (item.id === action.id) {
+                        return {...item, text: action.text}
+                    }
+                    return item;
+                })
+            };
             break;
         case DELETE_TASK:
-            return {...state}
+            return {...state, tasks: state.tasks.filter(item => item.id !== action.id)};
             break;
         default:
             return state;
