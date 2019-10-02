@@ -4,16 +4,18 @@ const UPDATE_TASK = 'UPDATE_TASK';
 const DELETE_TASK = 'DELETE_TASK';
 
 const initialState = {
-    tasks: [{id: 1, performed: false, task: 'first task'},
-        {id: 2, performed: false, task: 'second task'},
-        {id: 3, performed: false, task: 'third task'}]
+    tasks: [{id: 1, performed: false, task: 'hi!'}]
 };
 
 export const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
             return {
-                ...state, tasks: [...state.tasks, {id: state.tasks.length + 1, performed: false, task: action.text}]
+                ...state, tasks: [...state.tasks, {
+                    id: Math.max(...state.tasks.map(item => {
+                        return item.id
+                    })) + 1, performed: false, task: action.text
+                }]
             };
             break;
         case PERFORM_TASK:
@@ -30,7 +32,7 @@ export const taskReducer = (state = initialState, action) => {
             return {
                 ...state, tasks: state.tasks.map((item) => {
                     if (item.id === action.id) {
-                        return {...item, text: action.text}
+                        return {...item, task: action.text}
                     }
                     return item;
                 })

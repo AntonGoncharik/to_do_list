@@ -5,7 +5,7 @@ import {addTask, deleteTask, performTask, updateTask} from "../../redux/task_red
 
 const ToDoList = (props) => {
     const addTask = () => {
-        props.addTask('test');
+        props.addTask('hi!');
     };
 
     return (

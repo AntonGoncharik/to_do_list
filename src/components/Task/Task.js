@@ -11,10 +11,6 @@ const Task = ({id, performed, task, deleteTask, performTask, updateTask}) => {
         setEditMode(false);
     };
 
-    const handleEdit = (id) => {
-        updateTask(id, 'changed');
-    };
-
     const handleDelete = (id) => {
         deleteTask(id);
     };
@@ -23,16 +19,20 @@ const Task = ({id, performed, task, deleteTask, performTask, updateTask}) => {
         performTask(id);
     };
 
+    const handleChange = (id, e) => {
+        updateTask(id, e.currentTarget.value);
+    };
+
     return (
         <div>
             <div>{id}</div>
             <div>{performed && "yes" || 'no'}</div>
             <div>
-                {editMode && <input autoFocus onBlur={offEditMode}/>}
+                {editMode && <input autoFocus
+                                    value={task}
+                                    onBlur={offEditMode}
+                                    onChange={(e) => handleChange(id, e)}/>}
                 {!editMode && <span onDoubleClick={onEditMode}>{task}</span>}
-            </div>
-            <div>
-                <button onClick={() => handleEdit(id)}>edit</button>
             </div>
             <div>
                 <button onClick={() => handleDelete(id)}>delete</button>
