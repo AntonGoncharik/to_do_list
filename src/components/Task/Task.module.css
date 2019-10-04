@@ -1,0 +1,22 @@
+.blank {
+    width: 250px;
+    height: 250px;
+    background: url('../../img/blank.png') no-repeat;
+}
+
+.textTask {
+    padding-left: 50px;
+    padding-top: 50px;
+    font-weight: bold;
+}
+
+.buttonIcon {
+    width: 32px;
+    cursor: pointer;
+}
+
+.buttonControl {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 140px;
+}

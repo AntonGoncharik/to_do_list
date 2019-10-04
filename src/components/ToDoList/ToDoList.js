@@ -2,6 +2,8 @@ import React from 'react';
 import Task from "../Task/Task";
 import {connect} from "react-redux";
 import {addTask, deleteTask, performTask, updateTask} from "../../redux/task_reducer";
+import buttonAdd from './../../img/add.png';
+import s from './ToDoList.module.css';
 
 const ToDoList = (props) => {
     const addTask = () => {
@@ -10,7 +12,11 @@ const ToDoList = (props) => {
 
     return (
         <div>
-            <button onClick={addTask}>add task</button>
+            <div></div>
+            <div className={s.buttonIcon}
+                 onClick={addTask}>
+                <img src={buttonAdd}/>
+            </div>
             {props.tasks.map(item =>
                 <Task key={item.id}
                       id={item.id}

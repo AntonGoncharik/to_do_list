@@ -22,7 +22,7 @@ export const taskReducer = (state = initialState, action) => {
             return {
                 ...state, tasks: state.tasks.map((item) => {
                     if (item.id === action.id) {
-                        return {...item, performed: true}
+                        return {...item, performed: !item.performed}
                     }
                     return item;
                 })

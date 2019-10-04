@@ -1,4 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import s from './Task.module.css';
+import buttonDelete from './../../img/delete.png';
+import buttonPerform from './../../img/check_empty.png';
+import buttonCancel from './../../img/check_fill.png';
 
 const Task = ({id, performed, task, deleteTask, performTask, updateTask}) => {
     const [editMode, setEditMode] = useState(false);
@@ -24,21 +28,25 @@ const Task = ({id, performed, task, deleteTask, performTask, updateTask}) => {
     };
 
     return (
-        <div>
-            <div>{id}</div>
-            <div>{performed && "yes" || 'no'}</div>
-            <div>
-                {editMode && <input autoFocus
-                                    value={task}
-                                    onBlur={offEditMode}
-                                    onChange={(e) => handleChange(id, e)}/>}
+        <div className={s.blank}>
+            <div className={s.textTask}>
+                {editMode && <textarea autoFocus
+                                       value={task}
+                                       onBlur={offEditMode}
+                                       onChange={(e) => handleChange(id, e)}/>}
                 {!editMode && <span onDoubleClick={onEditMode}>{task}</span>}
             </div>
-            <div>
-                <button onClick={() => handleDelete(id)}>delete</button>
-            </div>
-            <div>
-                <button onClick={() => handlePerform(id)}>perform</button>
+            <div className={s.buttonControl}>
+                <div className={s.buttonIcon}>
+                    <div onClick={() => handlePerform(id)}>
+                        {performed && <img src={buttonCancel}/> || <img src={buttonPerform}/>}
+                    </div>
+                </div>
+                <div className={s.buttonIcon}>
+                    <div onClick={() => handleDelete(id)}>
+                        <img src={buttonDelete}/>
+                    </div>
+                </div>
             </div>
         </div>
     )
