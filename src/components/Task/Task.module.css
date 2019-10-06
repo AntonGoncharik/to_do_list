@@ -18,5 +18,11 @@
 .buttonControl {
     display: flex;
     justify-content: space-between;
-    margin-top: 140px;
+}
+
+.text {
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    word-wrap: break-word;
 }

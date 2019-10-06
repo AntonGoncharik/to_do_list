@@ -10,6 +10,10 @@ const ToDoList = (props) => {
         props.addTask('hi!');
     };
 
+    // document.addEventListener('mousemove', () => console.log('mousemove'));
+    // document.addEventListener('mousedown', (e) => console.log(e));
+    // document.addEventListener('mouseup', () => console.log('mouseup'));
+
     return (
         <div>
             <div></div>

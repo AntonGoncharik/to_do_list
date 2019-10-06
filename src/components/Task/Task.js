@@ -30,11 +30,15 @@ const Task = ({id, performed, task, deleteTask, performTask, updateTask}) => {
     return (
         <div className={s.blank}>
             <div className={s.textTask}>
-                {editMode && <textarea autoFocus
-                                       value={task}
-                                       onBlur={offEditMode}
-                                       onChange={(e) => handleChange(id, e)}/>}
-                {!editMode && <span onDoubleClick={onEditMode}>{task}</span>}
+                {editMode && <div className={s.text}>
+                    <textarea autoFocus
+                              value={task}
+                              onBlur={offEditMode}
+                              onChange={(e) => handleChange(id, e)}/>
+                </div>}
+                {!editMode && <div className={s.text}>
+                    <span onDoubleClick={onEditMode}>{task}</span>
+                </div>}
             </div>
             <div className={s.buttonControl}>
                 <div className={s.buttonIcon}>
