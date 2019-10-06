@@ -2,6 +2,7 @@
   "name": "to_do_list",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://antongoncharik.github.io/to_do_list",
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.9.0",
