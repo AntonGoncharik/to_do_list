@@ -1,12 +1,28 @@
 .blank {
     width: 250px;
     height: 250px;
-    background: url('../../img/blank.png') no-repeat;
+    margin: 10px;
+}
+
+.colourBlue {
+    background: url('../../img/blank_blue.png') no-repeat;
+}
+
+.colourGreen {
+    background: url('../../img/blank_green.png') no-repeat;
+}
+
+.colourYellow {
+    background: url('../../img/blank_yellow.png') no-repeat;
+}
+
+.colourPink {
+    background: url('../../img/blank_pink.png') no-repeat;
 }
 
 .textTask {
-    padding-left: 50px;
-    padding-top: 50px;
+    padding-left: 10px;
+    padding-top: 40px;
     font-weight: bold;
 }
 
@@ -25,4 +41,17 @@
     width: 150px;
     height: 150px;
     word-wrap: break-word;
+}
+
+.iconColour {
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.iconWithText {
+    display: flex;
+}
+
+.pressButton:active {
+    transform: translateY(2px);
 }

@@ -1,35 +1,38 @@
 import React from 'react';
 import Task from "../Task/Task";
 import {connect} from "react-redux";
-import {addTask, deleteTask, performTask, updateTask} from "../../redux/task_reducer";
+import {addTask, changeIconColour, deleteTask, performTask, updateTask} from '../../redux/task_reducer';
 import buttonAdd from './../../img/add.png';
 import s from './ToDoList.module.css';
+import cn from 'classnames';
 
 const ToDoList = (props) => {
     const addTask = () => {
         props.addTask('hi!');
     };
 
-    // document.addEventListener('mousemove', () => console.log('mousemove'));
-    // document.addEventListener('mousedown', (e) => console.log(e));
-    // document.addEventListener('mouseup', () => console.log('mouseup'));
-
     return (
         <div>
-            <div></div>
-            <div className={s.buttonIcon}
-                 onClick={addTask}>
-                <img src={buttonAdd}/>
+            <div className={s.addNewTask}>
+                <div className={cn(s.buttonIcon, s.pressButton)}
+                     onClick={addTask}>
+                    <img src={buttonAdd}/>
+                </div>
+                <div>Add new task</div>
             </div>
-            {props.tasks.map(item =>
-                <Task key={item.id}
-                      id={item.id}
-                      performed={item.performed}
-                      task={item.task}
-                      deleteTask={props.deleteTask}
-                      performTask={props.performTask}
-                      updateTask={props.updateTask}/>
-            )}
+            <div className={s.areaToDoList}>
+                {props.tasks.map(item =>
+                    <Task key={item.id}
+                          id={item.id}
+                          indexColour={item.colour}
+                          performed={item.performed}
+                          task={item.task}
+                          deleteTask={props.deleteTask}
+                          performTask={props.performTask}
+                          updateTask={props.updateTask}
+                          changeColour={props.changeColour}/>
+                )}
+            </div>
         </div>
     )
 }
@@ -45,7 +48,8 @@ const mapDispatchToProps = (dispatch) => {
         addTask: text => dispatch(addTask(text)),
         deleteTask: id => dispatch(deleteTask(id)),
         performTask: id => dispatch(performTask(id)),
-        updateTask: (id, text) => dispatch(updateTask(id, text))
+        updateTask: (id, text) => dispatch(updateTask(id, text)),
+        changeColour: (id, indexColour) => dispatch(changeIconColour(id, indexColour))
     }
 };
 

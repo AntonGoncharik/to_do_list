@@ -2,3 +2,18 @@
     width: 32px;
     cursor: pointer;
 }
+
+.addNewTask {
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.areaToDoList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pressButton:active {
+    transform: translateY(2px);
+}
