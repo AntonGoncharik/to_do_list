@@ -7,6 +7,12 @@
     display: flex;
     font-size: 20px;
     font-weight: bold;
+    margin: 5px;
+}
+
+.buttonPanel {
+    display: flex;
+    justify-content: space-between;
 }
 
 .areaToDoList {
@@ -16,4 +22,9 @@
 
 .pressButton:active {
     transform: translateY(2px);
+}
+
+.active {
+    color: white;
+    border-bottom: white 5px solid;
 }

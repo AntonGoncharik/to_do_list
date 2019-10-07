@@ -3,8 +3,10 @@ const PERFORM_TASK = 'PERFORM_TASK';
 const UPDATE_TASK = 'UPDATE_TASK';
 const DELETE_TASK = 'DELETE_TASK';
 const CHANGE_ICON_COLOUR = 'CHANGE_ICON_COLOUR';
+const SELECTION_TASKS = 'SELECTION_TASKS';
 
 const initialState = {
+    selection: 0,
     tasks: [{id: 1, performed: false, task: 'hi!', colour: 0}]
 };
 
@@ -56,6 +58,9 @@ export const taskReducer = (state = initialState, action) => {
                 })
             };
             break;
+        case SELECTION_TASKS:
+            return {...state, selection: action.selection};
+            break;
         default:
             return state;
     }
@@ -79,4 +84,8 @@ export const deleteTask = (id) => {
 
 export const changeIconColour = (id, indexColour) => {
     return {type: 'CHANGE_ICON_COLOUR', id, indexColour}
+}
+
+export const selectionTasks = (selection) => {
+    return {type: 'SELECTION_TASKS', selection}
 }
