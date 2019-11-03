@@ -90,6 +90,6 @@ const Task = ({id, performed, task, deleteTask, performTask, updateTask, changeC
             </div>
         </div>
     )
-}
+};
 
 export default Task;

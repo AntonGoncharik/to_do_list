@@ -4,8 +4,6 @@ import {Provider} from 'react-redux';
 import {store} from './redux/store';
 
 const App = (props) => {
-    document.addEventListener('mousedown', (e) => console.log(e));
-
     return (
         <div>
             <Provider store={store}>
@@ -13,6 +11,6 @@ const App = (props) => {
             </Provider>
         </div>
     )
-}
+};
 
 export default App;

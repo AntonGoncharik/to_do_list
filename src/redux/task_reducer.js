@@ -64,28 +64,28 @@ export const taskReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 
 export const addTask = (text) => {
     return {type: 'ADD_TASK', text}
-}
+};
 
 export const performTask = (id) => {
     return {type: 'PERFORM_TASK', id}
-}
+};
 
 export const updateTask = (id, text) => {
     return {type: 'UPDATE_TASK', id, text}
-}
+};
 
 export const deleteTask = (id) => {
     return {type: 'DELETE_TASK', id}
-}
+};
 
 export const changeIconColour = (id, indexColour) => {
     return {type: 'CHANGE_ICON_COLOUR', id, indexColour}
-}
+};
 
 export const selectionTasks = (selection) => {
     return {type: 'SELECTION_TASKS', selection}
-}
+};

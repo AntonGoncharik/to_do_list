@@ -74,7 +74,7 @@ const ToDoList = (props) => {
             </div>
         </div>
     )
-}
+};
 
 const mapStateToProps = (state) => {
     return {
